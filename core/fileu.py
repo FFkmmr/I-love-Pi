@@ -34,8 +34,8 @@ class FU(object):
                 result = True
             else:
                 raise IOError("Bad directory <{}>".format(source))
-        except IOError as e:
-            logger.error(e)
+        except IOError as exc:
+            print(exc)
         return result
 
     @classmethod
