@@ -3,8 +3,8 @@ import sys
 import time
 from functools import partial
 from pathlib import Path
-from concurrent.futures import ProcessPoolExecutor
-from core.fileu import FU as fu
+# from concurrent.futures import ProcessPoolExecutor
+from .core.fileu import FU as fu
 
 """
     Launch example: 
@@ -62,15 +62,37 @@ class Main:
         buff_size = 100000000
         file_offset = 0
         count = 0
+        matches = {}
+
         stm = time.perf_counter()
         for f in fu.get_files(dpath):
             for n in Main.find_in_file_it(pattern, f):
-                fn = Path(f).name
                 count += 1
-                print(f"{count} ({fn}) - {n+file_offset}")
+                matches[count] = n + file_offset
             file_offset += buff_size
         se = time.perf_counter() - stm
-        print(f"Founded {count} entries at {se:.4f} sec.")
+
+        matches['summary'] = f"Founded {count} entries at {se:.4f} sec."
+        return matches
+
+    
+    # @staticmethod
+    # def process_files(pattern, dpath):
+    #     buff_size = 100000000
+    #     file_offset = 0
+    #     count = 0
+    #     stm = time.perf_counter()
+    #     for f in fu.get_files(dpath):
+    #         for n in Main.find_in_file_it(pattern, f):
+    #             fn = Path(f).name
+    #             count += 1
+    #             print(f"{count} ({fn}) - {n+file_offset}")
+    #         file_offset += buff_size
+    #     se = time.perf_counter() - stm
+    #     response = f"Founded {count} entries at {se:.4f} sec."
+    #     print(response)
+    #     return response
+
 
     @staticmethod
     def process_file(pattern, fn):
@@ -83,30 +105,31 @@ class Main:
         print(f"Founded {count} entries at {se:.4f} sec.")
 
 
-def process_file(pattern, fn):
-    result = []
-    for n in Main.find_in_file(pattern, fn):
-        result.append(n)
-    return result
-
-
-def future_callback(future):
-    print(future.result())
-
-
-def process_file_pool(pattern):
-    with ProcessPoolExecutor(10) as pool:
-        for fn in fu.get_files(dpath):
-            future = pool.submit(process_file, pattern, fn)
-            future.add_done_callback(future_callback)
-
-
 if __name__ == "__main__":
     dpath = sys.argv[1] if 1 < len(sys.argv) else os.path.join(BASE_PATH, 'data')
-    pattern = sys.argv[2] if 2 < len(sys.argv) else '01243'
+    pattern = sys.argv[2] if 2 < len(sys.argv) else '74012'
     fn = "/media/efanchiс/mobile/bigfiles/test/pi_dec_1t_0000.txt"
 
     Main.process_files(pattern, dpath)
+
+# def process_file(pattern, fn):
+#     result = []
+#     for n in Main.find_in_file(pattern, fn):
+#         result.append(n)
+#     return result
+
+
+# def future_callback(future):
+#     print(future.result())
+
+
+# def process_file_pool(pattern):
+#     with ProcessPoolExecutor(10) as pool:
+#         for fn in fu.get_files(dpath):
+#             future = pool.submit(process_file, pattern, fn)
+#             future.add_done_callback(future_callback)
+
+
 
     #Main.process_file(pattern, fn)
     # stm = time.perf_counter()

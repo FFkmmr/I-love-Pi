@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+{% load cache_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'pattern_finder/css/style.css' %}?{% cache_boost %}">
+    <title>Home</title>
+</head>
+<body>
+    <header>
+        <div class="header-images">
+            <img src="{% static 'pattern_finder/images/eye.png' %}" alt="Eye_img">
+            <img src="{% static 'pattern_finder/images/heart.png' %}" alt="Heart_img">
+            <img src="{% static 'pattern_finder/images/cupcake.png' %}" alt="Cupcake_img">
+        </div>
+        <div class="header-nav">
+            <div class="header-nav-title">
+                <h1>THE PI-SEARCH PAGE</h1>
+                <h4>24 Trillion #</h4>    
+            </div>
+            <div class="header-nav-links">
+                <a href="">HOME</a>
+                <a href="">ABOUT US</a>
+                <a href="">CONTACT</a>
+            </div>
+        </div>
+    </header>
+    {% block body %}{% endblock %}
+    <script src="{% static 'pattern_finder/js/script.js' %}?{% cache_boost %}"></script>
+</body>
+</html>

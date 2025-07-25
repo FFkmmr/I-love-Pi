@@ -4,9 +4,9 @@ By default script search Data folder in poject root path.
 
 ###### Launch script with command:
 ```bash
-python3.8 __main__.py /bigfiles/test '0011453'
+python __main__.py /bigfiles/test '0011453'
 ```
 or
 ```bash
-python3.8 project_name '/bigfiles/test' '0011453'
+python project_name '/bigfiles/test' '0011453'
 ```
