@@ -1,0 +1,39 @@
+{% extends "pattern_finder/layout.html" %}
+{% load static %}
+
+
+{% block body %}
+    {% include 'pattern_finder/legacies/search_area_input.html' %}
+
+    <div class="find-blocks-area">
+        
+
+
+
+
+
+
+
+
+
+
+
+        <!-- {% if result %}
+            <ul>
+                {% for key, value in result.items %}
+                    {% if not forloop.last %}
+                        <li>{{ key }}: {{ value }}</li>
+                    {% else %}
+                       <li><strong>{{ value }}</strong></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+         -->
+        <!-- <div style="display:flex; flex-wrap: wrap; gap: 10px;">
+            {% for chunk in chunks %}
+                <a href="{% url 'pi_chunk_detail' chunk.mil_number %}">{{ chunk.mil_number }}</a>
+            {% endfor %}
+        </div> -->
+    </div>
+{% endblock %}
