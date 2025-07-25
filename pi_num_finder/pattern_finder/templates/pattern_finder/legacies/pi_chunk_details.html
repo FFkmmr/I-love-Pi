@@ -1,0 +1,90 @@
+{% extends "pattern_finder/layout.html" %}
+{% load static %}
+
+
+{% block body %}
+    {% include 'pattern_finder/legacies/search_area_input.html' %}
+    
+
+    <div class="chunk_details_block">
+        <div class="chunk_details">
+            <div class="description">
+                <div class="path">
+                    <!-- Должно отображаться 3 интерактивных блока: какой триллион, какой миллиард, какой из пяти 200_миллион  -->
+                    <!-- В тестовой версии 1 блок номера миллиона -->
+                    
+                    <!-- <div class="which_trillion"></div>
+                    <div class="which_billion"></div> -->
+                    <div class="which_200mil">
+                        {{ mil_id }} 200_million
+                    </div>
+                    <div class="which_200mil">
+                        {{ mil_id }} 200_million
+                    </div>
+                    <div class="which_200mil">
+                        {{ mil_id }} 200_million
+                    </div>
+                    <div class="which_200mil">
+                        {{ mil_id }} 200_million
+                    </div>
+                </div>
+                <div class="result">
+                    <h1>Results</h1>
+                    <p>
+                        The string <strong>{{ pattern }}</strong> occurs <strong>{{ count_of_find_patterns }}</strong> times in the first <br>
+                        200M digits of <br>
+                        counting from the first digit after the decimal point. The 3. is not counted. <br>
+                        <strong>{{ result.runtime }}</strong>
+                    </p>
+                </div>
+                <div class="find_new_pattern_on_page">
+                    <h2>Let’s find other beautiful patterns:</h2>
+                    <div class="find_input_block">
+                        <input type="text" name="find_pattern_input">
+                        <button></button>
+                        <button></button>
+                    </div>
+                    <a href="/">All</a>
+                </div>
+            </div>
+            <div class="data">
+                <div class="numbers">
+                    <p>{{ 500numbers }}</p>
+                </div>
+                <div class="nav_numbers">
+                    <button></button>
+                    <button></button>
+                    <div class="panel">
+                        {{ current_page }}/{{ all_pages }}
+                    </div>
+                    <div class="next_match">
+                        <p>Next match:</p>
+                        <button></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="find_patterns_on_page_blocks">
+            {% if find_patterns %}
+                {% for pattern, find_count in find_patterns %}
+                <div class="find_pattern_print">
+                    <h3>{{ pattern }}</h3>
+                    <h4>{{find_count}}</h4>
+                </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+        <!-- {% if result %}
+                {% for key, value in result.items %}
+                    {% if not forloop.last %}
+                        <li>{{ key }}: {{ value }}</li>
+                    {% else %}
+                       <li><strong>{{ value }}</strong></li>
+                    {% endif %}
+                {% endfor %}
+        {% endif %} -->
+
+        
+{% endblock %}

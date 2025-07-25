@@ -25,6 +25,11 @@ a {
 }
 /* End CSS Reset */
 
+body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
 
 header { 
   width: 100%;
@@ -88,6 +93,8 @@ header {
   align-items: center;
   height: 80px;
   width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .search-pi-section .search-area {
   margin-right: 10px;
@@ -115,5 +122,133 @@ header {
 
 
 .find-blocks-area {
-  
+  display: flex;
+  color: white;
+  width: 100%;
+  height: 100%;
+  gap: 10px;
+  padding: 20px;
+}
+.find-object-200m {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 200px;
+  height: 150px;
+  background: linear-gradient(to right, #8e2de2, #4a00e0);
+  border: 2px solid rgb(131, 1, 143);
+
+}
+.find-object-200m h2 {
+}
+.find-count-of-coincidence {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000000;
+  font-size: 20px;  
+
+  position: absolute;
+  width: 100px;
+  height: 30px;
+  background-color: #ffffff;
+  margin-top: 45%;
+  border-radius: 20px;
+}
+
+
+
+
+.chunk_details_block {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.chunk_details {
+  display: flex;
+  width: 100%;
+  height: 70%;
+}
+
+
+.chunk_details .description {
+  width: 100%;
+  overflow: hidden;
+}
+.chunk_details .description .path {
+  position: relative;
+  display: flex;
+  height: 10%;
+  border: 2px solid rgb(29, 255, 180);
+  padding: 7px;
+  gap: 10px;
+}
+.chunk_details .description .path .which_trillion {
+}
+.chunk_details .description .path .which_billion {
+}
+.chunk_details .description .path .which_200mil {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+  color: white;
+  height: 100%;
+  width: 100%;
+}
+
+
+
+.chunk_details .description .result {
+  height: 45%;
+  border: 2px solid rgb(29, 255, 180);
+}
+.chunk_details .description .result h1 {
+  padding: 20px;
+}
+.chunk_details .description .result p {
+  margin-left: 30px;
+}
+.chunk_details .description .result strong {
+  color: blue;
+  border: 1px solid black;  
+}
+
+.chunk_details .description .find_new_pattern_on_page {
+  height: 45%;
+  border: 2px solid rgb(29, 255, 180);
+}
+
+
+
+
+
+.chunk_details .data {
+  width: 100%;
+  overflow: hidden;
+}
+.chunk_details .data .numbers {
+  height: 87%;
+  overflow-y: scroll;
+  border: 2px solid rgb(29, 255, 180);
+}
+.chunk_details .data .nav_numbers {
+  height: 13%;
+  border: 2px solid rgb(29, 255, 180);
+}
+
+
+
+
+
+
+.find_patterns_on_page_blocks {
+
+  width: 100%;
+  height: 10%;
+  border: 2px solid #8e2de2;
 }

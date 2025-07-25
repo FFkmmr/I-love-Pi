@@ -7,33 +7,19 @@
 
     <div class="find-blocks-area">
         
+        {% for filename, data in result.items %}
+            {% if filename != 'summary' %}
+                <a href="{% url 'pi_chunk_detail' forloop.counter %}" class="find-object-200m">
+                    <h2>{{ forloop.counter }} of millions</h2>
 
-
-
-
-
-
-
-
-
-
-
-        <!-- {% if result %}
-            <ul>
-                {% for key, value in result.items %}
-                    {% if not forloop.last %}
-                        <li>{{ key }}: {{ value }}</li>
-                    {% else %}
-                       <li><strong>{{ value }}</strong></li>
+                    {% if data.count > 0 %}
+                        <div class="find-count-of-coincidence">
+                            {{ data.count }}
+                        </div>
                     {% endif %}
-                {% endfor %}
-            </ul>
-        {% endif %}
-         -->
-        <!-- <div style="display:flex; flex-wrap: wrap; gap: 10px;">
-            {% for chunk in chunks %}
-                <a href="{% url 'pi_chunk_detail' chunk.mil_number %}">{{ chunk.mil_number }}</a>
-            {% endfor %}
-        </div> -->
+                </a>
+            {% endif %}
+        {% endfor %}        
+
     </div>
 {% endblock %}

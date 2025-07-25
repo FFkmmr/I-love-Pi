@@ -57,42 +57,40 @@ class Main:
                 for x in Main.findall(substr, s):
                     yield x
 
+
     @staticmethod
     def process_files(pattern, dpath):
-        buff_size = 100000000
+        buff_size = 1000000
+        # 100 000 000 => 1 000 000
         file_offset = 0
-        count = 0
+        total_count = 0
         matches = {}
 
         stm = time.perf_counter()
-        for f in fu.get_files(dpath):
-            for n in Main.find_in_file_it(pattern, f):
-                count += 1
-                matches[count] = n + file_offset
-            file_offset += buff_size
-        se = time.perf_counter() - stm
 
-        matches['summary'] = f"Founded {count} entries at {se:.4f} sec."
+        for f in fu.get_files(dpath):
+            file_nums_count = 0
+            file_matches = {}
+            for n in Main.find_in_file_it(pattern, f):
+                file_nums_count += 1
+                total_count += 1
+                file_matches[file_nums_count] = n + file_offset
+
+            if file_matches: 
+                matches[os.path.basename(f)] = {
+                    'matches': file_matches,
+                    'count': file_nums_count,
+                }
+
+            file_offset += buff_size
+
+        se = time.perf_counter() - stm
+        matches['runtime'] = f"This query took {se:.4f} seconds."
+        matches['summary'] = f"Found {total_count} entries in {len(matches)} file(s) at {se:.4f} sec."
+
         return matches
 
     
-    # @staticmethod
-    # def process_files(pattern, dpath):
-    #     buff_size = 100000000
-    #     file_offset = 0
-    #     count = 0
-    #     stm = time.perf_counter()
-    #     for f in fu.get_files(dpath):
-    #         for n in Main.find_in_file_it(pattern, f):
-    #             fn = Path(f).name
-    #             count += 1
-    #             print(f"{count} ({fn}) - {n+file_offset}")
-    #         file_offset += buff_size
-    #     se = time.perf_counter() - stm
-    #     response = f"Founded {count} entries at {se:.4f} sec."
-    #     print(response)
-    #     return response
-
 
     @staticmethod
     def process_file(pattern, fn):
