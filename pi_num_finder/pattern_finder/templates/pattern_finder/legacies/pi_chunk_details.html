@@ -1,5 +1,6 @@
 {% extends "pattern_finder/layout.html" %}
 {% load static %}
+{% load ordinal %}
 
 
 {% block body %}
@@ -11,21 +12,14 @@
             <div class="description">
                 <div class="path">
                     <!-- Должно отображаться 3 интерактивных блока: какой триллион, какой миллиард, какой из пяти 200_миллион  -->
-                    <!-- В тестовой версии 1 блок номера миллиона -->
+                    <!-- В тестовой версии дублированный 1 блок номера миллиона -->
                     
-                    <!-- <div class="which_trillion"></div>
-                    <div class="which_billion"></div> -->
-                    <div class="which_200mil">
-                        {{ mil_id }} 200_million
+                    <!-- <div class="which_trillion"></div> -->
+                    <div class="which_billion">
+                        1st billion 
                     </div>
                     <div class="which_200mil">
-                        {{ mil_id }} 200_million
-                    </div>
-                    <div class="which_200mil">
-                        {{ mil_id }} 200_million
-                    </div>
-                    <div class="which_200mil">
-                        {{ mil_id }} 200_million
+                        {{ mil_id|ordinal }} million
                     </div>
                 </div>
                 <div class="result">
@@ -38,11 +32,11 @@
                     </p>
                 </div>
                 <div class="find_new_pattern_on_page">
-                    <h2>Let’s find other beautiful patterns:</h2>
+                    <h3>Let’s find other beautiful patterns:</h3>
                     <div class="find_input_block">
-                        <input type="text" name="find_pattern_input">
-                        <button></button>
-                        <button></button>
+                        <input type="text" name="find_pattern_input" placeholder="Type your pattern">
+                        <button>find</button>
+                        <button>customize</button>
                     </div>
                     <a href="/">All</a>
                 </div>
@@ -52,14 +46,14 @@
                     <p>{{ 500numbers }}</p>
                 </div>
                 <div class="nav_numbers">
-                    <button></button>
-                    <button></button>
+                    <button>previous_page</button>
                     <div class="panel">
-                        {{ current_page }}/{{ all_pages }}
+                        {{ current_page|default:"0" }} / {{ all_pages|default:"0" }}
                     </div>
+                    <button>next_page</button>
                     <div class="next_match">
                         <p>Next match:</p>
-                        <button></button>
+                        <button>next_match</button>
                     </div>
                 </div>
             </div>
@@ -75,7 +69,7 @@
             {% endif %}
         </div>
     </div>
-
+            <!--  TEST -->
         <!-- {% if result %}
                 {% for key, value in result.items %}
                     {% if not forloop.last %}
@@ -85,6 +79,6 @@
                     {% endif %}
                 {% endfor %}
         {% endif %} -->
-
+            <!-- ENDTEST -->
         
 {% endblock %}

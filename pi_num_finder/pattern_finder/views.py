@@ -18,8 +18,10 @@ def home_page(request):
 
 def pi_search(request):
     if request.method == 'POST':
-       
-        dpath = os.path.join(__main__.BASE_PATH, 'data')
+                                                    #  TEST       
+        # dpath = os.path.join(__main__.BASE_PATH, 'data/TEST_trillion_000/billion_000') 
+                                                    #  PROD with 1 trillion with 1 object of 200billions
+        dpath = os.path.join(__main__.BASE_PATH, 'data/unsorted_trillions/trillion_00/200billions_0/')
         pattern = request.POST.get('pattern')
 
         result = __main__.Main.process_files(pattern, dpath)
@@ -33,14 +35,13 @@ def pi_search(request):
 def pi_chunk_detail(request, mil_id):
     result = request.session.get('search_result')
     pattern = request.session.get('pattern')
-    count_of_find_patterns = result[f'pi_dec_{mil_id}m.txt']['count']
-
+    count_of_find_patterns = result[f'pi_200mil_{mil_id}m.txt']['count']
     
     context = {
         'result': result,
         'mil_id': mil_id,
         'count_of_find_patterns': count_of_find_patterns,
         'pattern': pattern,
-        
+
     }
     return render(request, 'pattern_finder/legacies/pi_chunk_details.html', context)

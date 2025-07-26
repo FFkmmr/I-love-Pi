@@ -41,7 +41,7 @@ class Main:
                     yield x
 
     @staticmethod
-    def find_in_file_it(substr, fname, buff_size=100000000):
+    def find_in_file_it(substr, fname, buff_size=100_000_000):
         """
         Find substr in big (1gb+) string stored in file. Return all position founded.
         :param substr: Needle string
@@ -60,8 +60,8 @@ class Main:
 
     @staticmethod
     def process_files(pattern, dpath):
-        buff_size = 1000000
-        # 100 000 000 => 1 000 000
+        buff_size = 200_000_000
+        # 100 000 000 => 200 000 000
         file_offset = 0
         total_count = 0
         matches = {}
