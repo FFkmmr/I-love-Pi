@@ -18,10 +18,11 @@ def home_page(request):
 
 def pi_search(request):
     if request.method == 'POST':
-                                                    #  TEST       
+                                    #  TEST       
         # dpath = os.path.join(__main__.BASE_PATH, 'data/TEST_trillion_000/billion_000') 
-                                                    #  PROD with 1 trillion with 1 object of 200billions
-        dpath = os.path.join(__main__.BASE_PATH, 'data/unsorted_trillions/trillion_00/200billions_0/')
+                        #  PROD 
+        # dpath = os.path.join(__main__.BASE_PATH, 'data/unsorted_trillions/trillion_00/200billions_0/')
+        dpath = os.path.join(__main__.BASE_PATH, 'data/unsorted_billions/pi_billion_00/')
         pattern = request.POST.get('pattern')
 
         result = __main__.Main.process_files(pattern, dpath)
