@@ -14,6 +14,7 @@ def split_billion():
 
     if len(digits) != 1_000_000_000:
         print(f"Warning: Expected 1,000,000,000 digits, got {len(digits)}")
+        digits = digits[2:]
 
     for i in range(CHUNK_COUNT):
         start = i * CHUNK_SIZE
@@ -24,3 +25,5 @@ def split_billion():
             f_out.write(chunk)
         print(f"Saved: {output_file} ({len(chunk)} digits)")
 
+if __name__ == '__main__':
+    split_billion()

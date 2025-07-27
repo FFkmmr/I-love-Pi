@@ -29,10 +29,13 @@ class FU(object):
         """
         result = False
         try:
+            print(f"[DEBUG] Checking directory: {source}")
             if os.path.exists(source) and os.path.isdir(source)\
                     and os.access(source, os.R_OK) and os.listdir(source):
+                print(f"  Exists: {os.path.exists(source)}")
                 result = True
             else:
+                
                 raise IOError("Bad directory <{}>".format(source))
         except IOError as exc:
             print(exc)
