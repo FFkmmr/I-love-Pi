@@ -75,7 +75,6 @@ class Main:
                 file_nums_count += 1
                 total_count += 1
                 file_matches[file_nums_count] = n + file_offset
-
             if file_matches: 
                 matches[os.path.basename(f)] = {
                     'matches': file_matches,

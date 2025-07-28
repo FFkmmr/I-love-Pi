@@ -17,11 +17,7 @@ def home_page(request):
 
 
 def pi_search(request):
-    if request.method == 'POST':
-                                    #  TEST       
-        # dpath = os.path.join(__main__.BASE_PATH, 'data/TEST_trillion_000/billion_000') 
-                        #  PROD 
-        # dpath = os.path.join(__main__.BASE_PATH, 'data/unsorted_trillions/trillion_00/200billions_0/')
+    if request.method == 'POST': 
         dpath = os.path.join(__main__.BASE_PATH, 'data/unsorted_billions/pi_billion_00/')
         pattern = request.POST.get('pattern')
 
@@ -36,7 +32,7 @@ def pi_search(request):
 def pi_chunk_detail(request, mil_id):
     result = request.session.get('search_result')
     pattern = request.session.get('pattern')
-    count_of_find_patterns = result[f'pi_200mil_{mil_id}m.txt']['count']
+    count_of_find_patterns = result[f'pi_200mil_{mil_id}.txt']['count']
     
     context = {
         'result': result,

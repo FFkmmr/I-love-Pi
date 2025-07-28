@@ -9,4 +9,5 @@ staticfiles/
 .DS_Store
 **/data/*.txt
 **/data/*/*.txt
+**/data/*/*/*.txt
 **/TEST_trillion_000
