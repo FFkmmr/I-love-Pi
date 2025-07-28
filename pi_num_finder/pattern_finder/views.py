@@ -32,7 +32,7 @@ def pi_search(request):
 def pi_chunk_detail(request, mil_id):
     result = request.session.get('search_result')
     pattern = request.session.get('pattern')
-    count_of_find_patterns = result[f'pi_200mil_{mil_id}.txt']['count']
+    count_of_find_patterns = result[f'pi_200mil_{mil_id - 1}.txt']['count']
     
     context = {
         'result': result,

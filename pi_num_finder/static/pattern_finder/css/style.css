@@ -232,16 +232,17 @@ header .header-nav-links a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   width: 100%;
   height: 100%;
-  border: 4px solid rgb(128, 0, 0);
 }
 .chunk_details_block .chunk_details .description {
   width: 100%;
   height: 100%;
   overflow: scroll;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
 }
 .chunk_details_block .chunk_details .description .path {
   position: relative;
@@ -249,6 +250,7 @@ header .header-nav-links a {
   display: -ms-flexbox;
   display: flex;
   height: 10%;
+  max-height: 60px;
   background-color: #A15CF5;
   padding: 7px;
   gap: 10px;
@@ -342,8 +344,6 @@ header .header-nav-links a {
   padding: 5px;
 }
 .chunk_details_block .chunk_details .data {
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -415,11 +415,19 @@ header .header-nav-links a {
 
 /* Media queries */
 @media (max-width: 1199px) {
-  .chunk_details_block .chunk_details {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+  .chunk_details {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+  }
+  .data {
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+  }
+  .description {
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
   }
   .header-nav h1 {
     font-size: 25px;
