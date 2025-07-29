@@ -6,56 +6,75 @@
 {% block body %}
     {% include 'pattern_finder/legacies/search_area_input.html' %}
     
+    <div class="body-content">
+        <div class="chunk_details_block">
+            <div class="chunk_details">
+                
+                <div class="data">
+                    <div class="numbers">
+                        <p>{{ highlighted_chunk|safe }}</p>
+                    </div>
+                    <div class="nav_numbers">
+                        <form method="get">
+                            <input type="hidden" name="match_index" value="{{ match_index }}">
+                            <input type="hidden" name="current_page" value="{{ current_page }}">
+                            {% if has_prev_match %}
+                                <button name="match_index" value="{{ match_index|add:'-1' }}">← Prev Match</button>
+                            {% endif %}
 
-    <div class="chunk_details_block">
-        <div class="chunk_details">
-            <div class="description">
-                <div class="path">
-                    <!-- <div class="which_trillion"></div> -->
-                    <div class="which_billion">
-                        1st billion 
-                    </div>
-                    <div class="which_200mil">
-                        {{ mil_id|ordinal }} million
+                            {% if has_next_match %}
+                                <button name="match_index" value="{{ match_index|add:'1' }}">Next Match →</button>
+                            {% endif %}
+                            <div class="match_number">
+                                {% if match_index %}
+                                    Match number: {{ match_index }}
+                                {% endif %}
+                            </div>
+                            <div class="match_number">
+                                {% if match_pos %}
+                                    Match position (index): {{ match_pos }}
+                                {% endif %}
+                            </div>
+                            <div class="match_number">
+                                {% if match_index %}
+                                    Match number: {{ match_index }}
+                                {% endif %}
+                            </div>
+                        </form>
                     </div>
                 </div>
-                <div class="result">
-                    <h1>Results</h1>
-                    <p>
-                        The string <strong>{{ pattern }}</strong> occurs <strong>{{ count_of_find_patterns }}</strong> times in the first <br>
-                        200M digits of <br>
-                        counting from the first digit after the decimal point. The 3. is not counted. <br>
-                        <strong>{{ result.runtime }}</strong>
-                    </p>
-                </div>
-                <div class="find_new_pattern_on_page">
-                    <h3>Let’s find other beautiful patterns:</h3>
-                    <div class="find_input_block">
-                        <input type="text" name="find_pattern_input" placeholder="Type your pattern">
-                        <button>find</button>
-                        <button>customize</button>
+                <div class="description">
+                    <div class="path">
+                        <!-- <div class="which_trillion"></div> -->
+                        <div class="which_billion">
+                            1st billion 
+                        </div>
+                        <div class="which_200mil">
+                            {{ mil_id|ordinal }} million
+                        </div>
                     </div>
-                    <a href="/">All</a>
-                </div>
-            </div>
-            <div class="data">
-                <div class="numbers">
-                    <p>{{ 500numbers }}</p>
-                </div>
-                <div class="nav_numbers">
-                    <button>previous_page</button>
-                    <div class="panel">
-                        {{ current_page|default:"0" }} / {{ all_pages|default:"0" }}
+                    <div class="result">
+                        <h1>Results</h1>
+                        <p>
+                            The string <strong>{{ pattern }}</strong> occurs <strong>{{ count_of_find_patterns }}</strong> <br>
+                            counting from the first digit after the decimal point. The 3. is not counted. <br>
+                            <strong>{{ result.runtime }}</strong>
+                        </p>
                     </div>
-                    <button>next_page</button>
-                    <div class="next_match">
-                        <p>Next match:</p>
-                        <button>next_match</button>
+                    <div class="find_new_pattern_on_page">
+                        <h3>Let’s find other beautiful patterns:</h3>
+                        <div class="find_input_block">
+                            <input type="text" name="find_pattern_input" placeholder="Type your pattern">
+                            <button>find</button>
+                            <button>customize</button>
+                        </div>
+                        <a href="/">All</a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="find_patterns_on_page_blocks">
+            <button>123456</button>
             {% if find_patterns %}
                 {% for pattern, find_count in find_patterns %}
                 <div class="find_pattern_print">
@@ -66,5 +85,4 @@
             {% endif %}
         </div>
     </div>
-        
 {% endblock %}

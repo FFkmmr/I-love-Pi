@@ -60,8 +60,7 @@ class Main:
 
     @staticmethod
     def process_files(pattern, dpath):
-        buff_size = 200_000_000
-        # 100 000 000 => 200 000 000
+        buff_size = 100_000_000
         file_offset = 0
         total_count = 0
         matches = {}
@@ -69,6 +68,7 @@ class Main:
         stm = time.perf_counter()
 
         for f in fu.get_files(dpath):
+            print('[DEBUG] ВЗЯТ ФАЙЛ')
             file_nums_count = 0
             file_matches = {}
             for n in Main.find_in_file_it(pattern, f):

@@ -65,7 +65,7 @@ class FU(object):
                     fn = os.path.join(dr, item)
                     if os.path.isfile(fn):
                         name = Path(fn).name
-                        if "pi" in name:
+                        if "millions" in name:
                             result.append(fn)
                 result = sorted(result)
         except Exception as exc:

@@ -190,6 +190,7 @@ header {
   flex-direction: column;
   width: 100%;
   height: 100%;
+  height: fit-content;
 
   .chunk_details {
     display: flex;
@@ -199,8 +200,8 @@ header {
 
     .description {
       width: 100%;
-      height: 100%;
-      overflow: scroll;
+      height: fit-content;
+      overflow-y: scroll;
 
       .path {
         position: relative;
@@ -226,6 +227,7 @@ header {
 
       .result {
         height: 45%;
+        min-height: 160px;
         overflow-y: scroll;
         & h1 {
           padding: 20px;
@@ -242,6 +244,8 @@ header {
       }
 
       .find_new_pattern_on_page {
+        margin-bottom: 30px;
+        margin-top: 20px;
         h3 {
           margin: 20px;
         }
@@ -276,7 +280,7 @@ header {
           display: flex;
           justify-content: center;
           align-items: center;
-          margin: 20px 0 0 40px;
+          margin: 2px 0 0 40px;
           width: 60px;
           border: 1px solid black;
           padding: 5px;
@@ -288,19 +292,37 @@ header {
       width: 100%;
       height: 100%;
       overflow: hidden;
+      border: 2px solid $border-blue;
 
       .numbers {
         height: 87%;
+        word-wrap: break-word;
         overflow-y: scroll;
-        border: 2px solid $border-blue;
+        padding: 10px;
       }
 
       .nav_numbers {
         display: flex;
         height: 13%;
-        padding: 20px;
+        padding: 5px;
         gap: 20px;
-        border: 2px solid $border-blue;
+        form {
+          display: flex;
+          width: 100%;
+          gap: 5px;
+
+          .match_number {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            
+            width: fit-content;
+            padding: 0px 10px;
+            min-height: 30px;
+            border: 2px solid rgb(0, 177, 118);
+          }
+        }
 
         button {
           padding: 5px;
@@ -324,6 +346,7 @@ header {
 
           p {
             display: flex;
+
             align-items: center;
           }
 
@@ -340,8 +363,24 @@ header {
  flex-shrink: 1;
   width: 100%;
   height: 10%;
+  min-height: 50px;
+  max-height: 80px;
   border: 2px solid $color-secondary;
 }
+
+
+
+
+
+
+.highlight {
+        background-color: #3dffae;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+
+
 
 /* Media queries */
 @media (max-width: $breakpointx-md) {
@@ -366,6 +405,9 @@ header {
             font-size: 20px;
         }
     }
+}
+.body-content {
+  height: 100%;
 }
 @media (max-width: $breakpointx-sm) {
     header {
@@ -395,9 +437,8 @@ header {
         height: 45%;
         min-height: 115px;
         overflow-y: scroll;
-        color: #6825A3;
         h1 {
-          font-size: 17px;
+          font-size: 20px;
           padding: 10px !important;
         }
     }
