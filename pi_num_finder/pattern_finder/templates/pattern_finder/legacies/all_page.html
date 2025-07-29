@@ -1,0 +1,86 @@
+{% extends "pattern_finder/layout.html" %}
+{% load static %}
+
+{% block body %}
+    {% include 'pattern_finder/legacies/search_area_input.html' with button_text="Find"  %}
+
+    <h1 class="all_page_title">First 200 millions of Pi digits:</h1>
+    <div class="all-nav">
+        <hr>
+        <div class="pages-nav-lg">
+            <div>
+                {% if 1 not in page_range %}
+                <a href="?current_page=1">1</a>
+                {% if page_range.0 > 2 %}...{% endif %}
+                {% endif %}
+
+                {% for page_number in page_range %}
+                {% if page_number != current_page %}
+                    <a href="?current_page={{ page_number }}">{{ page_number }}</a>
+                {% endif %}
+                {% endfor %}
+
+                {% if total_pages not in page_range %}
+                {% if page_range|last < total_pages|add:'-1' %}...{% endif %}
+                <a href="?current_page={{ total_pages }}">{{ total_pages }}</a>
+                {% endif %}
+            </div>
+            <div>
+                <button
+                type="button"
+                onclick="changePage(-1)"
+                aria-label="Предыдущая страница"
+                style="padding: 4px 8px; cursor: pointer;"
+                >&lt;</button>
+
+                <input
+                id="page-input"
+                value="{{ current_page }}"
+                min="1"
+                max="200"
+                style="width: 60px; text-align: center;"
+                onkeydown="if(event.key === 'Enter') submitPageInput()"
+                />
+
+                <button
+                type="button"
+                onclick="changePage(1)"
+                aria-label="Следующая страница"
+                style="padding: 4px 8px; cursor: pointer;"
+                >&gt;</button>
+            </div>
+        </div>
+
+        <div class="pages-nav-md">
+            <div>
+                {% if 1 not in page_range %}
+                    <a href="?current_page=1">1</a>
+                    {% if page_range.0 > 2 %}...{% endif %}
+                {% endif %}
+                {% for page_number in page_range %}
+                    {% if page_number == current_page %} 
+            </div>
+                <input
+                id="page-input"
+                value="{{ current_page }}"
+                min="1"
+                max="200"
+                style="width: 60px; text-align: center;"
+                onkeydown="if(event.key === 'Enter') submitPageInput()"
+                />
+            <div>
+                {% else %}
+                        <a href="?current_page={{ page_number }}">{{ page_number }}</a>
+                    {% endif %}
+                {% endfor %}
+                {% if total_pages not in page_range %}
+                    {% if page_range|last < total_pages|add:'-1' %}...{% endif %}
+                    <a href="?current_page={{ total_pages }}">{{ total_pages }}</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

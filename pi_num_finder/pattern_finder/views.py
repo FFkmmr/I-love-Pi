@@ -28,10 +28,6 @@ def pi_search(request):
     return redirect('home')
 
 
-
-
-
-
 def pi_chunk_detail(request, mil_id):
     result = request.session.get('search_result')
     pattern = request.session.get('pattern')
@@ -75,3 +71,33 @@ def pi_chunk_detail(request, mil_id):
     }
 
     return render(request, 'pattern_finder/legacies/pi_chunk_details.html', context)
+
+
+def all_page(request):
+    total_pages = 200
+    range_size = 14
+    
+    current_page = int(request.GET.get('current_page', 1))
+    current_page = max(1, min(current_page, total_pages))
+    
+    start_page = max(1, current_page - range_size)
+    end_page = min(total_pages, current_page + range_size)
+    page_range = range(start_page, end_page + 1)
+
+
+    context = {
+        'current_page': current_page,
+        'page_range': page_range,
+        'total_pages': total_pages,
+    }
+    return render(request, 'pattern_finder/legacies/all_page.html', context)
+
+
+
+
+def find(request):
+
+    context = {
+
+    }
+    return render(request, 'pattern_finder/legacies/all_page.html', context)

@@ -1,9 +1,17 @@
 <div class="search-pi-section">
     <div class="search-area">
-        <form action="{% url 'pi_search' %}" method="POST">
+        {% if button_text %}
+            <form action="{% url 'find' %}" method="POST">
+        {% else %}
+            <form action="{% url 'pi_search' %}" method="POST">
+        {% endif %}
             {% csrf_token %}
             <input type="text" name="pattern" class="search-area-input" placeholder="Search strings">
-            <button type="submit" class="search-area-button">Search Pi</button>
+            {% if button_text %}
+                <button type="submit" class="search-area-button">{{ button_text }}</button>
+            {% else %}
+                <button type="submit" class="search-area-button">Search Pi</button>
+            {% endif %}
         </form>
     </div>
 </div>

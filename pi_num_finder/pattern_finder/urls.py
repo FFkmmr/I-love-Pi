@@ -5,4 +5,6 @@ urlpatterns = [
     path('', views.home_page, name='home'),
     path('search/', views.pi_search, name="pi_search"),
     path('pi-200mil-detail/<int:mil_id>/', views.pi_chunk_detail, name='pi_chunk_detail'),
+    path('all', views.all_page, name='all_page'),
+    path('all', views.find, name='find'),
 ]
