@@ -3,8 +3,7 @@
 
 {% block body %}
     {% include 'pattern_finder/legacies/search_area_input.html' with button_text="Find"  %}
-
-    <h1 class="all_page_title">First 200 millions of Pi digits:</h1>
+    
     <div class="all-nav">
         <hr>
         <div class="pages-nav-lg">
@@ -32,16 +31,14 @@
                 aria-label="Предыдущая страница"
                 style="padding: 4px 8px; cursor: pointer;"
                 >&lt;</button>
-
                 <input
-                id="page-input"
+                class="page-input"
                 value="{{ current_page }}"
                 min="1"
                 max="200"
                 style="width: 60px; text-align: center;"
-                onkeydown="if(event.key === 'Enter') submitPageInput()"
+                onkeydown="if(event.key === 'Enter') submitPageInput(this)"
                 />
-
                 <button
                 type="button"
                 onclick="changePage(1)"
@@ -50,7 +47,6 @@
                 >&gt;</button>
             </div>
         </div>
-
         <div class="pages-nav-md">
             <div>
                 {% if 1 not in page_range %}
@@ -81,6 +77,54 @@
         </div>
     </div>
 
+    <div class="all-content-block">
+        <div class="all-numbers-block">
+            <div class="numbers">
+                <p>{{ highlighted_chunk|safe }}</p>
+            </div>
+            <div class="numbers-addit-nav">
+                <div>
+                    <button
+                    type="button"
+                    onclick="changePage(-1)"
+                    aria-label="Предыдущая страница"
+                    style="padding: 4px 8px; cursor: pointer;"
+                    >&lt;</button>
+                    <input
+                    class="page-input"
+                    value="{{ current_page }}"
+                    min="1"
+                    max="200"
+                    style="width: 60px; text-align: center;"
+                    onkeydown="if(event.key === 'Enter') submitPageInput(this)"
+                    />
+                    <button
+                    type="button"
+                    onclick="changePage(1)"
+                    aria-label="Следующая страница"
+                    style="padding: 4px 8px; cursor: pointer;"
+                    >&gt;</button>
+                </div>
+            </div>
+        </div>
+        <div class="all-patterns-block">
+            <div class="find_patterns_on_page_blocks">
+                {% if find_patterns %}
+                    {% for pattern in find_patterns %}
+
+                        <div class="find_pattern_print">
+                            <h3>{{ pattern }}</h3>
+                        </div>
+                    
+                    {% endfor %}
+                {% endif %}
+                <form action="{% url 'clear_find_patterns' %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                    <button type="submit" class="search-area-button">Clear</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
 
 {% endblock %}

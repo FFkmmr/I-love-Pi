@@ -14,8 +14,6 @@ $breakpointx-sm: 785px;
 $breakpointx-xs: 580px;
 
 $breakpointy-md: 950px;
-// $breakpointy-sm: px;
-
 /* Reset */
 *, *::before, *::after {
   margin: 0;
@@ -39,16 +37,14 @@ a {
   text-decoration: none;
   color: inherit;
 }
-
 body {
   position: relative;
   display: flex;
   flex-direction: column;
 }
-
 header {
   width: 100%;
-  height: 150px;
+  max-height: 150px;
   background-color: $color-primary;
   display: flex;
   overflow: hidden;
@@ -107,7 +103,6 @@ header {
     }
   }
 }
-
 .search-pi-section {
   display: flex;
   justify-content: end;
@@ -123,7 +118,9 @@ header {
     border: 1px solid rgb(119, 119, 119);
     border-bottom: 2px solid gray;
   }
-
+  h1 {
+    margin-right: auto; 
+  }
   form {
     display: flex;
     height: 100%;
@@ -139,7 +136,6 @@ header {
     }
   }
 }
-
 .find-blocks-area {
   display: flex;
   justify-content: center;
@@ -160,16 +156,19 @@ header {
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    
+    justify-content: center;    
     align-items: center;
+
     gap: 10px;
     width: 181px;
     height: 150px;
     background: linear-gradient(to right, $color-secondary, $color-accent);
     border: 2px solid $border-purple;
 
-    h2 {}
+    h2 {
+      width: 120px;
+      margin-bottom: 20px;
+    }
 
     .find-count-of-coincidence {
       display: flex;
@@ -186,7 +185,6 @@ header {
     }
   }
 }
-
 .chunk_details_block {
   display: flex;
   flex-direction: column;
@@ -361,37 +359,26 @@ header {
     }
   }
 }
-
-.find_patterns_on_page_blocks {
- flex-shrink: 1;
-  width: 100%;
-  height: 10%;
-  min-height: 50px;
-  max-height: 80px;
-  border: 2px solid $color-secondary;
-}
-
-
-
-
-
-
 .highlight {
         background-color: #3dffae;
         font-weight: bold;
         font-size: 20px;
-    }
-
-
-
+}
 .body-content {
   height: 100%;
+}
+.all_page_title {
+  margin-top: 0px;
+  margin-left: 40px;
+  margin-bottom: 20px;
 }
 .all-nav {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 75px;
+  width: 100%;
 
   hr {  
     border: none;
@@ -432,13 +419,69 @@ header {
     }
   }
 }
-.all_page_title {
-  margin-top: 0px;
-  margin-left: 40px;
-  margin-bottom: 20px;
-}
+.all-content-block {
+  display: flex;
 
+  border: 2px solid red;
+  margin-top: 20px;
+  width: 100%;
+  height: 50%;
 
+  .all-numbers-block {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    width: 70%;
+    margin-left: auto;
+    border: 2px solid #3dffae;
+    
+    .numbers {
+      height: 92%;
+      max-height: 92%;
+      word-wrap: break-word;
+      overflow-y: scroll;
+      padding: 15px;
+    }
+    .numbers-addit-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 100%;
+      height: 10%;
+      border: 2px solid aqua;
+
+      div:first-child {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 30px;
+
+      }
+    }
+  }
+  .all-patterns-block {
+    width: 20%;
+    height: 80%;
+    margin-right: auto;
+    border: 2px solid tan;
+    .find_patterns_on_page_blocks {
+      flex-shrink: 1;
+      width: 100%;
+      height: 100%;
+      min-height: 50px;
+      max-height: 80px;
+
+      .find_pattern_print {
+        width: 100%;
+        height: 40px;
+        border: 2px solid $color-secondary;
+      }
+
+    }
+
+  }
+} 
 
 
 
@@ -524,6 +567,7 @@ header {
     }
 
 }
+
 
 @media (max-height: $breakpointy-md) {
     .result {

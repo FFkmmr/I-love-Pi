@@ -1,6 +1,7 @@
 {% extends "pattern_finder/layout.html" %}
 {% load static %}
 {% load ordinal %}
+{% load humanize %}
 
 
 {% block body %}
@@ -32,12 +33,7 @@
                             </div>
                             <div class="match_number">
                                 {% if match_pos %}
-                                    Match position (index): {{ match_pos }}
-                                {% endif %}
-                            </div>
-                            <div class="match_number">
-                                {% if match_index %}
-                                    Match number: {{ match_index }}
+                                    Match position (index): {{ match_pos|intcomma }}
                                 {% endif %}
                             </div>
                         </form>

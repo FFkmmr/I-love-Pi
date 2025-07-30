@@ -68,7 +68,7 @@ class Main:
         stm = time.perf_counter()
 
         for f in fu.get_files(dpath):
-            print('[DEBUG] ВЗЯТ ФАЙЛ')
+            print(f'[DEBUG] ВЗЯТ ФАЙЛ: {os.path.basename(f)}')
             file_nums_count = 0
             file_matches = {}
             for n in Main.find_in_file_it(pattern, f):

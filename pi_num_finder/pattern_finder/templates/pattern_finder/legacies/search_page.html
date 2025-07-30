@@ -1,25 +1,23 @@
 {% extends "pattern_finder/layout.html" %}
 {% load static %}
-
+{% load ordinal %}
 
 {% block body %}
     {% include 'pattern_finder/legacies/search_area_input.html' %}
 
     <div class="find-blocks-area">
         
-        {% for filename, data in result.items %}
-            {% if filename != 'summary' and filename != 'runtime'  %}
-                <a href="{% url 'pi_chunk_detail' forloop.counter %}" class="find-object-200m">
-                    <h2>{{ forloop.counter }} of millions</h2>
+        {% for file_number, filename, data in file_entries %}
+            <a href="{% url 'pi_chunk_detail' forloop.counter %}" class="find-object-200m">
+                <h2>{{ file_number|ordinal }} of 100 millions</h2>
 
-                    {% if data.count > 0 %}
-                        <div class="find-count-of-coincidence">
-                            {{ data.count }}
-                        </div>
-                    {% endif %}
-                </a>
-            {% endif %}
-        {% endfor %}        
+                {% if data.count > 0 %}
+                    <div class="find-count-of-coincidence">
+                        {{ data.count }}
+                    </div>
+                {% endif %}
+            </a>
+        {% endfor %}
 
     </div>
 {% endblock %}
