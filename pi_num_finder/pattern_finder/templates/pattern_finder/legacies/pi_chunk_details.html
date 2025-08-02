@@ -9,6 +9,22 @@
     
     <div class="details-body-content">
         <div class="chunk_details_block">
+                    <div class="find_patterns_on_page_blocks-xs">
+            <div>
+                {% if pattern_colors %}
+                    {% for pattern, color_class in pattern_colors %}
+                        <div class="find_pattern_print {{ color_class }}">
+                            <h3>{{ pattern }}</h3>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <form action="{% url 'clear_find_patterns' %}?match_index={{ match_index }}&current_page={{ current_page }}" method="POST" style="display:inline;">
+                {% csrf_token %}
+                <input type="hidden" name="clear_form" value="clear_patterns">
+                <button type="submit" class="search-area-button">Clear</button>
+            </form>
+        </div>
             <div class="chunk_details">
                 
                 <div class="data">
@@ -75,7 +91,7 @@
                 </div>
             </div>
         </div>
-        <div class="find_patterns_on_page_blocks">
+        <div class="find_patterns_on_page_blocks-lg">
             <div>
                 {% if pattern_colors %}
                     {% for pattern, color_class in pattern_colors %}

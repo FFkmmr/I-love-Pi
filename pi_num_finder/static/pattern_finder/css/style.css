@@ -530,7 +530,25 @@ header .header-nav-links a {
   width: 100%;
   padding: 10px;
 }
-.details-body-content .find_patterns_on_page_blocks {
+.details-body-content .find_patterns_on_page_blocks-xs {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: none;
+  max-width: 100%;
+}
+.details-body-content .find_patterns_on_page_blocks-xs .search-area-button {
+  width: 100px;
+  height: 40px;
+  border: 1px solid black;
+}
+.details-body-content .find_patterns_on_page_blocks-xs h3 {
+  word-break: break-all;
+}
+.details-body-content .find_patterns_on_page_blocks-lg {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -550,7 +568,7 @@ header .header-nav-links a {
   width: 100%;
   min-height: 30px;
 }
-.details-body-content .find_patterns_on_page_blocks div {
+.details-body-content .find_patterns_on_page_blocks-lg div {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   display: -webkit-box;
@@ -562,11 +580,11 @@ header .header-nav-links a {
       -ms-flex-align: center;
           align-items: center;
 }
-.details-body-content .find_patterns_on_page_blocks div div h3 {
+.details-body-content .find_patterns_on_page_blocks-lg div div h3 {
   max-width: 100%;
   word-wrap: break-word;
 }
-.details-body-content .find_patterns_on_page_blocks .find_pattern_print {
+.details-body-content .find_patterns_on_page_blocks-lg .find_pattern_print {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -574,12 +592,16 @@ header .header-nav-links a {
   height: -moz-fit-content;
   height: fit-content;
   padding: 10px;
-  max-width: 90%;
+  width: 90%;
 }
-.details-body-content .find_patterns_on_page_blocks .search-area-button {
+.details-body-content .find_patterns_on_page_blocks-lg .find_pattern_print h3 {
+  max-width: 90%;
+  word-break: break-word;
+}
+.details-body-content .find_patterns_on_page_blocks-lg .search-area-button {
   width: 100px;
   height: 40px;
-  border: 1px solid black;
+  border: 2px solid black;
 }
 
 .all_page_title {
@@ -723,8 +745,6 @@ header .header-nav-links a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -732,7 +752,6 @@ header .header-nav-links a {
   -ms-flex-negative: 1;
       flex-shrink: 1;
   width: 100%;
-  height: 100%;
   min-height: 50px;
   padding: 10px;
   border: 2px solid #3dffae;
@@ -755,10 +774,11 @@ header .header-nav-links a {
   width: 100%;
   min-height: 40px;
   margin-bottom: 10px;
-  border: 3px solid #009200 h3;
-  border-padding: 10px;
-  border-max-width: 100%;
-  border-word-break: break-word;
+}
+.all-content-block .all-patterns-block .find_patterns_on_page_blocks .find_pattern_print h3 {
+  max-width: 90%;
+  word-break: break-word !important;
+  padding: 10px;
 }
 
 /* Media queries */
@@ -800,6 +820,30 @@ header .header-nav-links a {
   }
 }
 @media (max-width: 785px) {
+  .all-content-block {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+  }
+  .all-content-block .all-patterns-block {
+    width: 100%;
+  }
+  .all-content-block .all-numbers-block {
+    width: 100%;
+  }
+  .find_pattern_print h3 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 3px;
+  }
   header {
     height: 100px;
   }
@@ -828,7 +872,7 @@ header .header-nav-links a {
     font-size: 10px !important;
   }
   .header-nav .header-nav-links a {
-    font-size: 10px !important;
+    font-size: 13px !important;
   }
   .pages-nav-lg {
     display: none !important;
@@ -845,6 +889,18 @@ header .header-nav-links a {
   .all_page_title {
     margin-left: 5px;
     font-size: 20px;
+  }
+  .find_patterns_on_page_blocks-lg {
+    display: none !important;
+  }
+  .find_patterns_on_page_blocks-xs {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
 @media (max-height: 950px) {
