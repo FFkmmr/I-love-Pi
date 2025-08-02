@@ -644,6 +644,29 @@ header {
 
 /* Media queries */
 @media (max-width: $breakpointx-md) {
+    .all-content-block {
+      flex-direction: column !important;
+      .all-patterns-block {
+        width: 100%;
+      }
+      .all-numbers-block {
+        width: 100%;
+      }
+    }
+    .find_patterns_on_page_blocks-lg {
+      display: none !important;
+    }
+    .find_patterns_on_page_blocks-xs {
+      display: flex !important;
+      flex-direction: column;
+
+      h3 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+      }
+    }
   .chunk_details {
     flex-direction: column !important;
   }
@@ -676,15 +699,6 @@ header {
 }
 @media (max-width: $breakpointx-sm) {
   
-    .all-content-block {
-      flex-direction: column !important;
-      .all-patterns-block {
-        width: 100%;
-      }
-      .all-numbers-block {
-        width: 100%;
-      }
-    }
       .find_pattern_print {
         
         h3 {
@@ -738,13 +752,6 @@ header {
     .all_page_title {
       margin-left: 5px;
       font-size: 20px;
-    }
-    .find_patterns_on_page_blocks-lg {
-      display: none !important;
-    }
-    .find_patterns_on_page_blocks-xs {
-      display: flex !important;
-      flex-direction: column;
     }
 }
 

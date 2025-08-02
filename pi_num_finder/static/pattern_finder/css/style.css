@@ -783,6 +783,42 @@ header .header-nav-links a {
 
 /* Media queries */
 @media (max-width: 1199px) {
+  .all-content-block {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+  }
+  .all-content-block .all-patterns-block {
+    width: 100%;
+  }
+  .all-content-block .all-numbers-block {
+    width: 100%;
+  }
+  .find_patterns_on_page_blocks-lg {
+    display: none !important;
+  }
+  .find_patterns_on_page_blocks-xs {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .find_patterns_on_page_blocks-xs h3 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 5px;
+  }
   .chunk_details {
     -webkit-box-orient: vertical !important;
     -webkit-box-direction: normal !important;
@@ -820,18 +856,6 @@ header .header-nav-links a {
   }
 }
 @media (max-width: 785px) {
-  .all-content-block {
-    -webkit-box-orient: vertical !important;
-    -webkit-box-direction: normal !important;
-        -ms-flex-direction: column !important;
-            flex-direction: column !important;
-  }
-  .all-content-block .all-patterns-block {
-    width: 100%;
-  }
-  .all-content-block .all-numbers-block {
-    width: 100%;
-  }
   .find_pattern_print h3 {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -889,18 +913,6 @@ header .header-nav-links a {
   .all_page_title {
     margin-left: 5px;
     font-size: 20px;
-  }
-  .find_patterns_on_page_blocks-lg {
-    display: none !important;
-  }
-  .find_patterns_on_page_blocks-xs {
-    display: -webkit-box !important;
-    display: -ms-flexbox !important;
-    display: flex !important;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
   }
 }
 @media (max-height: 950px) {
