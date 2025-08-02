@@ -41,6 +41,7 @@ body {
 
 header {
   width: 100%;
+  min-height: 150px;
   max-height: 150px;
   background-color: #99CC00;
   display: -webkit-box;
@@ -203,7 +204,7 @@ header .header-nav-links a {
   border: 2px solid rgb(131, 1, 143);
 }
 .find-blocks-area .find-object-200m h2 {
-  width: 120px;
+  width: 126px;
   margin-bottom: 20px;
 }
 .find-blocks-area .find-object-200m .find-count-of-coincidence {
@@ -453,12 +454,132 @@ header .header-nav-links a {
 
 .highlight {
   background-color: #3dffae;
-  font-weight: bold;
-  font-size: 20px;
+  border: 2px solid #005a35;
+  font-weight: 900;
 }
 
-.body-content {
+.highlight-color0 {
+  border: 1px solid hsl(27, 100%, 36%);
+  color: hsl(27, 100%, 36%);
+  font-weight: 900;
+}
+
+.highlight-color1 {
+  border: 1px solid hsl(266, 100%, 34%);
+  color: hsl(266, 100%, 34%);
+  font-weight: 900;
+}
+
+.highlight-color2 {
+  border: 1px solid hsl(231, 100%, 34%);
+  color: hsl(231, 100%, 34%);
+  font-weight: 900;
+}
+
+.highlight-color3 {
+  border: 1px solid hsl(337, 100%, 35%);
+  color: hsl(337, 100%, 35%);
+  font-weight: 900;
+}
+
+.highlight-color4 {
+  border: 1px solid hsl(41, 100%, 29%);
+  color: hsl(41, 100%, 29%);
+  font-weight: 900;
+}
+
+.highlight-color5 {
+  border: 1px solid hsl(98, 100%, 37%);
+  color: hsl(98, 100%, 37%);
+  font-weight: 900;
+}
+
+.highlight-color6 {
+  border: 1px solid hsl(162, 100%, 41%);
+  color: hsl(162, 100%, 41%);
+  font-weight: 900;
+}
+
+.highlight-color7 {
+  border: 1px solid hsl(4, 100%, 35%);
+  color: hsl(4, 100%, 35%);
+  font-weight: 900;
+}
+
+.highlight-color8 {
+  border: 1px solid hsl(318, 100%, 39%);
+  color: hsl(318, 100%, 39%);
+  font-weight: 900;
+}
+
+.highlight-color9 {
+  border: 1px solid hsl(125, 100%, 40%);
+  color: hsl(125, 100%, 40%);
+  font-weight: 900;
+}
+
+.details-body-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   height: 100%;
+  width: 100%;
+  padding: 10px;
+}
+.details-body-content .find_patterns_on_page_blocks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  padding: 10px;
+  gap: 10px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 100%;
+  min-height: 30px;
+}
+.details-body-content .find_patterns_on_page_blocks div {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  max-width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.details-body-content .find_patterns_on_page_blocks div div h3 {
+  max-width: 100%;
+  word-wrap: break-word;
+}
+.details-body-content .find_patterns_on_page_blocks .find_pattern_print {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 10px;
+  max-width: 90%;
+}
+.details-body-content .find_patterns_on_page_blocks .search-area-button {
+  width: 100px;
+  height: 40px;
+  border: 1px solid black;
 }
 
 .all_page_title {
@@ -540,10 +661,10 @@ header .header-nav-links a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border: 2px solid red;
   margin-top: 20px;
   width: 100%;
   height: 50%;
+  margin-bottom: 500px;
 }
 .all-content-block .all-numbers-block {
   display: -webkit-box;
@@ -553,7 +674,7 @@ header .header-nav-links a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 80%;
+  max-height: 90%;
   width: 70%;
   margin-left: auto;
   border: 2px solid #3dffae;
@@ -591,22 +712,53 @@ header .header-nav-links a {
 }
 .all-content-block .all-patterns-block {
   width: 20%;
-  height: 80%;
+  min-height: 90%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   margin-right: auto;
-  border: 2px solid tan;
+  padding-bottom: 50px;
 }
 .all-content-block .all-patterns-block .find_patterns_on_page_blocks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -ms-flex-negative: 1;
       flex-shrink: 1;
   width: 100%;
   height: 100%;
   min-height: 50px;
-  max-height: 80px;
+  padding: 10px;
+  border: 2px solid #3dffae;
+}
+.all-content-block .all-patterns-block .find_patterns_on_page_blocks .search-area-button {
+  width: 100px;
+  height: 40px;
+  border: 1px solid black;
 }
 .all-content-block .all-patterns-block .find_patterns_on_page_blocks .find_pattern_print {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
-  height: 40px;
-  border: 2px solid #8e2de2;
+  min-height: 40px;
+  margin-bottom: 10px;
+  border: 3px solid #009200 h3;
+  border-padding: 10px;
+  border-max-width: 100%;
+  border-word-break: break-word;
 }
 
 /* Media queries */
@@ -696,6 +848,9 @@ header .header-nav-links a {
   }
 }
 @media (max-height: 950px) {
+  header {
+    min-height: 100px;
+  }
   .result {
     height: 45%;
     min-height: 115px;

@@ -108,22 +108,22 @@
             </div>
         </div>
         <div class="all-patterns-block">
-            <div class="find_patterns_on_page_blocks">
-                {% if find_patterns %}
-                    {% for pattern in find_patterns %}
-
-                        <div class="find_pattern_print">
+        <div class="find_patterns_on_page_blocks">
+            <div>
+                {% if pattern_colors %}
+                    {% for pattern, color_class in pattern_colors %}
+                        <div class="find_pattern_print {{ color_class }}">
                             <h3>{{ pattern }}</h3>
                         </div>
-                    
                     {% endfor %}
                 {% endif %}
-                <form action="{% url 'clear_find_patterns' %}" method="post" style="display:inline;">
-                {% csrf_token %}
-                    <button type="submit" class="search-area-button">Clear</button>
-                </form>
             </div>
+            <form action="{% url 'clear_find_patterns' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="search-area-button">Clear</button>
+            </form>
         </div>
+    </div>
     </div>
 
 

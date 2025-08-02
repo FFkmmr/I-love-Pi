@@ -9,10 +9,24 @@ $border-purple: rgb(131, 1, 143);
 $border-blue: rgb(116, 29, 255);
 $font-default: sans-serif;
 
+$highlight-color0: hsl(27, 100%, 36%);
+$highlight-color1: hsl(266, 100%, 34%);
+$highlight-color2: hsl(231, 100%, 34%);
+$highlight-color3: hsl(337, 100%, 35%);
+$highlight-color4: hsl(41, 100%, 29%);
+$highlight-color5: hsl(98, 100%, 37%);
+$highlight-color6: hsl(162, 100%, 41%);
+$highlight-color7: hsl(4, 100%, 35%);
+$highlight-color8: hsl(318, 100%, 39%);
+$highlight-color9: hsl(125, 100%, 40%);
+
+
+
+
 $breakpointx-md: 1199px;
 $breakpointx-sm: 785px;
 $breakpointx-xs: 580px;
-
+// --------------------
 $breakpointy-md: 950px;
 /* Reset */
 *, *::before, *::after {
@@ -44,6 +58,7 @@ body {
 }
 header {
   width: 100%;
+  min-height: 150px;
   max-height: 150px;
   background-color: $color-primary;
   display: flex;
@@ -166,7 +181,7 @@ header {
     border: 2px solid $border-purple;
 
     h2 {
-      width: 120px;
+      width: 126px;
       margin-bottom: 20px;
     }
 
@@ -361,11 +376,114 @@ header {
 }
 .highlight {
         background-color: #3dffae;
-        font-weight: bold;
-        font-size: 20px;
+        border: 2px solid #005a35;
+        font-weight: 900;
 }
-.body-content {
+.highlight-color0 {
+  border: 1px solid $highlight-color0;
+  color: $highlight-color0;
+  font-weight: 900;
+}
+
+.highlight-color1 {
+  border: 1px solid $highlight-color1;
+  color: $highlight-color1;
+  font-weight: 900;
+}
+
+.highlight-color2 {
+  border: 1px solid $highlight-color2;
+  color: $highlight-color2;
+  font-weight: 900;
+}
+
+.highlight-color3 {
+  border: 1px solid $highlight-color3;
+  color: $highlight-color3;
+  font-weight: 900;
+}
+
+.highlight-color4 {
+  border: 1px solid $highlight-color4;
+  color: $highlight-color4;
+  font-weight: 900;
+}
+
+.highlight-color5 {
+  border: 1px solid $highlight-color5;
+  color: $highlight-color5;
+  font-weight: 900;
+}
+
+.highlight-color6 {
+  border: 1px solid $highlight-color6;
+  color: $highlight-color6;
+  font-weight: 900;
+}
+
+.highlight-color7 {
+  border: 1px solid $highlight-color7;
+  color: $highlight-color7;
+  font-weight: 900;
+}
+
+.highlight-color8 {
+  border: 1px solid $highlight-color8;
+  color: $highlight-color8;
+  font-weight: 900;
+}
+
+.highlight-color9 {
+  border: 1px solid $highlight-color9;
+  color: $highlight-color9;
+  font-weight: 900;
+}
+.details-body-content {
+  display: flex;
+  flex-direction: column;
   height: 100%;
+  width: 100%;
+  padding: 10px;
+
+  
+  .find_patterns_on_page_blocks {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex-shrink: 1;
+    padding: 10px;
+    gap: 10px;
+
+    height: fit-content;
+    width: 100%;
+    min-height: 30px;    
+    
+    div {
+      flex-wrap: wrap;
+      display: flex;
+      gap: 10px;
+      max-width: 100%;
+      align-items: center;
+      
+      div h3 {
+        max-width: 100%;
+        word-wrap: break-word;
+      }
+    }
+
+    .find_pattern_print {
+      width: fit-content;
+      height: fit-content;
+      padding: 10px;
+      max-width: 90%;
+
+    }
+      .search-area-button {
+        width: 100px;
+        height: 40px;
+        border: 1px solid black;
+      }
+  }
 }
 .all_page_title {
   margin-top: 0px;
@@ -422,15 +540,15 @@ header {
 .all-content-block {
   display: flex;
 
-  border: 2px solid red;
   margin-top: 20px;
   width: 100%;
   height: 50%;
+  margin-bottom: 500px;
 
   .all-numbers-block {
     display: flex;
     flex-direction: column;
-    height: 80%;
+    max-height: 90%;
     width: 70%;
     margin-left: auto;
     border: 2px solid #3dffae;
@@ -462,22 +580,44 @@ header {
   }
   .all-patterns-block {
     width: 20%;
-    height: 80%;
+    min-height: 90%;
+    height: fit-content;
     margin-right: auto;
-    border: 2px solid tan;
+    padding-bottom: 50px;
+    
     .find_patterns_on_page_blocks {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
       flex-shrink: 1;
       width: 100%;
       height: 100%;
       min-height: 50px;
-      max-height: 80px;
+      padding: 10px;
+      border: 2px solid #3dffae;
 
-      .find_pattern_print {
-        width: 100%;
+      .search-area-button {
+        width: 100px;
         height: 40px;
-        border: 2px solid $color-secondary;
+        border: 1px solid black;
       }
 
+      .find_pattern_print {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+        min-height: 40px;
+        margin-bottom: 10px;
+        border: 3px solid #009200
+
+        h3 {
+          padding: 10px;
+          max-width: 100%;
+          word-break: break-word;
+        }
+      }
     }
 
   }
@@ -570,6 +710,9 @@ header {
 
 
 @media (max-height: $breakpointy-md) {
+    header {
+      min-height: 100px;
+    }
     .result {
         height: 45%;
         min-height: 115px;
@@ -581,8 +724,6 @@ header {
     }
     .find_new_pattern_on_page {
         min-height: 110px;
-    }
-    .description {
     }
 
     .chunk_details_block {
